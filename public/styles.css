@@ -22,10 +22,9 @@ body {
 
 .panel, .resume { 
     background: rgb(245, 248, 230); 
-    border: 1px solid #d9e1e5; 
-    border-radius: 10px; 
+    border-radius: 2rem; 
     padding: clamp(1.25rem, 5vw, 2.5rem); 
-    box-shadow: 0 4px 16px #1d29350a; 
+    box-shadow: 0 20px 5rem #977c4b42; 
 }
 
 h1, h2, h3, p { 
@@ -35,14 +34,6 @@ h1, h2, h3, p {
 h1, h2 { 
     line-height: 1.2; 
     margin-bottom: .5rem; 
-}
-
-.eyebrow { 
-    color: #176050; 
-    font-size: .75rem; 
-    font-weight: 700; 
-    letter-spacing: .1em; 
-    text-transform: uppercase; 
 }
 
 .field { 
@@ -58,7 +49,7 @@ label {
 
 .optional { 
     font-weight: 400; 
-    color: #52636e; 
+    color: #bdbdae; 
 }
 
 input, textarea, button { 
@@ -67,8 +58,8 @@ input, textarea, button {
 
 input, textarea { 
     width: 100%; 
-    border: 1px solid #9baeb7; 
-    border-radius: 5px; 
+    border: 2px solid #c7c7b7; 
+    border-radius: 0.6rem; 
     padding: .65rem; 
 }
 
@@ -110,14 +101,21 @@ button:disabled {
 
 .form-actions, .item-actions { 
     display: flex; 
+    justify-content: center;
     flex-wrap: wrap; 
     gap: .5rem; 
 }
 
+
+/* OTHER BODY CONTENT FOLLOWS */
+
 button.secondary { 
-    background: white; 
-    color: #176050; 
-    border: 1px solid #176050; 
+    background: #e2ffd9; 
+    color: #143108; 
+    border: 1px solid #143108; 
+    font-size: 0.8rem;
+    margin-right: 3rem;
+
 }
 
 [hidden] { 
@@ -129,12 +127,18 @@ button.secondary {
 }
 
 .resume-header { 
-    border-bottom: 2px solid #176050; 
-    margin-bottom: 1.5rem; 
+    text-align: center;
+}
+
+.headerPeriod {
+    font-size: 5rem;
+    text-align: center;
+    margin-bottom: 3rem; 
+    margin-top: -5rem;
 }
 
 .resume-header p:last-child { 
-    color: #52636e; 
+    color: #bdbdae; 
 }
 
 .experience { 
