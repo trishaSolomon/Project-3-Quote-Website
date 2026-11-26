@@ -76,10 +76,7 @@ async function loadItems() {
       // node.querySelector('.dates').textContent = `${item.start_year} – ${item.end_year ?? 'Present'}`;
       node.querySelector('.accomplishment').textContent = item.accomplishment;
       node.querySelector('.employer').textContent = item.employer;
-      // for lilith's schema
-      node.querySelector('.date').textContent = item.date;
-      node.querySelector('.genre').textContent = item.genre;
-      
+  
       const editButton = node.querySelector('.edit-item');
       const deleteButton = node.querySelector('.delete-item');
       editButton.setAttribute('aria-label', `Edit ${item.job_title} at ${item.employer}`);
