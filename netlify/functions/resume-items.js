@@ -12,8 +12,10 @@ export default async (request) => {
     return Response.json(items);
   } catch (error) {
     console.error('Resume API error:', error.name);
-    return Response.json({ error: 'Unable to process the request. Please try again later.' }, { status: 500 });
+    return Response.json({ error: 'Unable to load your quote. Please refresh the page or try again later.' }, 
+      { status: 500 });
   }
 };
 
 export const config = { path: '/api/resume-items' };
+
