@@ -165,6 +165,7 @@ button.secondary {
 .accomplishment { 
     white-space: pre-wrap; 
     overflow-wrap: anywhere; 
+    font-size: 2rem;
 }
 
 .resume-footer { 
