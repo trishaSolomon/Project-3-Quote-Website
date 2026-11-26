@@ -36,7 +36,7 @@ function editItem(item) {
   for (const field of fields) field.value = item[field.name] ?? '';
   submitButton.textContent = 'Save changes';
   cancelEditButton.hidden = false;
-  formStatus.textContent = 'Editing experience.';
+  formStatus.textContent = 'Editing quote...';
   fields[0].focus();
 }
 
@@ -63,10 +63,10 @@ for (const field of fields) {
 }
 
 async function loadItems() {
-  resumeStatus.textContent = 'Loading experiences…';
+  resumeStatus.textContent = 'Patience is a virtue...';
   try {
     const response = await fetch('/api/resume-items');
-    if (!response.ok) throw new Error('Unable to load experiences. Please try again later.');
+    if (!response.ok) throw new Error('Unable to load your quotes. Please refresh the page to try again.');
     const items = await response.json();
     const fragment = document.createDocumentFragment();
     for (const item of items) {
@@ -87,10 +87,10 @@ async function loadItems() {
       fragment.append(node);
     }
     resumeItems.replaceChildren(fragment);
-    resumeStatus.textContent = items.length ? '' : 'No experiences yet. Add the first one above.';
+    resumeStatus.textContent = items.length ? '' : 'There are no quotes yet. Add your first quote!';
     return true;
   } catch {
-    resumeStatus.textContent = 'Unable to load experiences. Please refresh the page to try again.';
+    resumeStatus.textContent = 'Unable to load your quotes. Please refresh the page to try again.';
     return false;
   }
 }
@@ -98,7 +98,7 @@ async function loadItems() {
 async function deleteItem(item, article) {
   if (busy || !confirm(`Delete ${item.job_title} at ${item.employer}?`)) return;
   setBusy(true);
-  resumeStatus.textContent = 'Deleting experience…';
+  resumeStatus.textContent = 'Deleting quote…';
   try {
     const response = await fetch(`/api/resume-item?id=${encodeURIComponent(item._id)}`, { method: 'DELETE' });
     if (!response.ok) {
@@ -108,14 +108,14 @@ async function deleteItem(item, article) {
     article.remove();
     if (editingId === item._id) {
       clearForm();
-      formStatus.textContent = 'The experience you were editing was deleted.';
+      formStatus.textContent = 'The quote you were editing was deleted.';
     }
     if (await loadItems()) {
-      resumeStatus.textContent = resumeItems.children.length ? 'Experience deleted.' : 'Experience deleted. No experiences yet.';
+      resumeStatus.textContent = resumeItems.children.length ? 'Quote deleted.' : 'Quote deleted. No quotes yet.';
     }
-    else resumeStatus.textContent = 'Experience deleted, but the resume could not be refreshed.';
+    else resumeStatus.textContent = 'Quote deleted, but the list could not be refreshed.';
   } catch (error) {
-    resumeStatus.textContent = error.message || 'Unable to delete the experience. Please try again.';
+    resumeStatus.textContent = error.message || 'Unable to delete the quote. Please try again.';
   } finally {
     setBusy(false);
   }
@@ -153,10 +153,10 @@ form.addEventListener('submit', async (event) => {
       }
     }
     clearForm();
-    formStatus.textContent = isEditing ? 'Experience updated.' : 'Experience saved.';
-    if (!await loadItems()) formStatus.textContent = 'Experience saved, but the resume could not be refreshed.';
+    formStatus.textContent = isEditing ? 'Quote updated.' : 'Quote saved.';
+    if (!await loadItems()) formStatus.textContent = 'Quote saved, but the list could not be refreshed.';
   } catch (error) {
-    formStatus.textContent = error.message || 'Unable to save the experience. Please try again.';
+    formStatus.textContent = error.message || 'Unable to save the quote. Please try again.';
   } finally {
     setBusy(false);
   }
