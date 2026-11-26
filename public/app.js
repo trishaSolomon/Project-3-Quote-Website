@@ -72,9 +72,9 @@ async function loadItems() {
     for (const item of items) {
       const node = template.content.cloneNode(true);
       node.querySelector('article').dataset.itemId = item._id;
-      node.querySelector('.job-title').textContent = item.job_title;
+      // node.querySelector('.job-title').textContent = item.job_title;
       node.querySelector('.employer').textContent = item.employer;
-      node.querySelector('.dates').textContent = `${item.start_year} – ${item.end_year ?? 'Present'}`;
+      // node.querySelector('.dates').textContent = `${item.start_year} – ${item.end_year ?? 'Present'}`;
       node.querySelector('.accomplishment').textContent = item.accomplishment;
       const editButton = node.querySelector('.edit-item');
       const deleteButton = node.querySelector('.delete-item');
