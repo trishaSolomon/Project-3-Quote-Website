@@ -159,13 +159,14 @@ button.secondary {
 }
 
 .dates, .employer { 
-    color: #52636e; 
+    color: #bdbdae; 
 }
 
 .accomplishment { 
     white-space: pre-wrap; 
     overflow-wrap: anywhere; 
     font-size: 2rem;
+    font-style: italic;
 }
 
 .resume-footer { 
