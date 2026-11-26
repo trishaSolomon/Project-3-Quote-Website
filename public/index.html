@@ -17,32 +17,7 @@
       <p>A saying stuck to mind? Write it down here!</p>
       
       <form id="resume-form" novalidate>
-        
-        <div class="field">
-          <label for="quote">Quote</label>
-          <textarea id="quote" name="quote" rows="6" required maxlength="1000" 
-                    aria-describedby="quote-error" placeholder="Type the quote here."></textarea>
-          <span class="error" id="quote-error"></span>
-        </div>
 
-        <div class="field">
-          <label for="author">Author of Quote</label>
-          <input id="author" name="author" type="text" required maxlength="100" aria-describedby="employer-error">
-          <span class="error" id="employer-error"></span>
-        </div>
-        
-        <div class="years">
-          <label for="date">Date Created <span class="optional">(optional)</span></label>
-          <input id="date" name="date" type="text" required maxlength="100" aria-describedby="employer-error">
-          <span class="error" id="employer-error"></span>
-        </div>
-
-        <div class="years">
-          <label for="genre">Genre <span class="optional">(optional)</span></label>
-          <input id="genre" name="genre" type="text" required maxlength="100" aria-describedby="employer-error" placeholder="Example: Inspiring, soothing, somber">
-          <span class="error" id="employer-error"></span>
-        </div>
-        
         <!-- <div class="field">
           <label for="job-title">Job title</label>
           <input id="job-title" name="job_title" type="text" required maxlength="100" aria-describedby="job-title-error">
@@ -74,6 +49,18 @@
           <input id="employer" name="employer" type="text" required maxlength="100" aria-describedby="employer-error">
           <span class="error" id="employer-error"></span>
         </div>
+
+        <div class="years">
+          <label for="date">Date Created <span class="optional">(optional)</span></label>
+          <input id="date" name="date" type="text" required maxlength="100" aria-describedby="start-year-error">
+          <span class="error" id="start-year-error"></span>
+        </div>
+
+        <!-- <div class="years">
+          <label for="genre">Genre <span class="optional">(optional)</span></label>
+          <input id="genre" name="genre" type="text" required maxlength="100" aria-describedby="employer-error" placeholder="Example: Inspiring, soothing, somber">
+          <span class="error" id="employer-error"></span>
+        </div> -->
 
         
         <div class="form-actions">
